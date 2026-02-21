@@ -1,5 +1,5 @@
 --[[
-ErnGenerousCaius for OpenMW.
+ErnInheritTheHouse for OpenMW.
 Copyright (C) Erin Pentecost 2026
 
 This program is free software: you can redistribute it and/or modify
@@ -19,7 +19,7 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 -- This file is in charge of tracking and exposing path information.
 -- Interact with it via the interface it exposes.
 
-local MOD_NAME = require("scripts.ErnGenerousCaius.ns")
+local MOD_NAME = require("scripts.ErnInheritTheHouse.ns")
 local types    = require("openmw.types")
 local world    = require("openmw.world")
 
