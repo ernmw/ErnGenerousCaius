@@ -38,6 +38,13 @@ local function onQuestUpdate(questId, stage)
             player = pself,
             cellID = "maar gan, tashpi ashibael's hut",
         })
+    elseif questId == "ms_nuccius" and stage == 100 then
+        print(tostring(questId) .. " = " .. tostring(stage))
+        -- vodunius leaves vvardenfell
+        core.sendGlobalEvent(MOD_NAME .. "onVacate", {
+            player = pself,
+            cellID = "seyda neen, vodunius nuccius' house",
+        })
     end
 end
 

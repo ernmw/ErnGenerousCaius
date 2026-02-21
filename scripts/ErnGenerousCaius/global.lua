@@ -58,8 +58,26 @@ local function onVacate(data)
     local cell = world.getCellById(data.cellID)
 
     print("Removing ownership...")
+    local exteriors = {}
     for _, obj in ipairs(cell:getAll()) do
         removeOwner(obj)
+        -- get outside door cells
+        if types.Door.objectIsInstance(obj) then
+            local destCell = types.Door.destCell(obj)
+            if types.Door.isTeleport(obj) and (destCell ~= nil) then
+                table.insert(exteriors, destCell)
+            end
+        end
+    end
+
+    -- set ownership on outside door
+    for _, extCell in ipairs(exteriors) do
+        for _, door in ipairs(extCell:getAll(types.Door)) do
+            local destCell = types.Door.destCell(door)
+            if types.Door.isTeleport(door) and (destCell == cell) then
+                removeOwner(door)
+            end
+        end
     end
 end
 
